@@ -10,7 +10,7 @@ def main():
 
     # Main Arguments
     parser.add_argument('odsin', type = str, nargs = '+', help = 'Name of the ods.')
-    parser.add_argument('texout', type = str, nargs = '?', help = 'Name of the tex.')
+    parser.add_argument('-out','texout', type = str, nargs = '?', help = 'Name of the tex.')
 
     # Actions
     parser.add_argument('-l', '--log', dest = 'logLevel', choices = ['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'], default = 'INFO', help = 'Set the logging level.')
@@ -18,22 +18,13 @@ def main():
 
     args = parser.parse_args()
 
-    # Checking for Argument Errors
-    if args.texout is None:
-        parser.error('Please introduce the revolution frequency of the reference nucleus or the brho parameter or ke/aa or gamma.')
-
     # Extra Details
     if args.logLevel: log.basicConfig(level = log.getLevelName(args.logLevel))
     if args.outdir: outfilepath = os.path.join(args.outdir, '')
-        
-    
-    # Here We Go:
-    print(f'Running {scriptname}... Lets see what we have in our ring ;-)')
-    log.info(f'File {args.datafile} passed for creating latex author list as {args.refion}.')
 
     controller(args.odsin, args.texout)
     
-def controller(odsin, textout = None):
+def controller(odsin, texout = None):
     
     try:
         with open(odsin, 'r') as f:
@@ -77,10 +68,10 @@ def controller(odsin, textout = None):
         names = '\\author{'+author_str+'}\n'
         alla.append(names+afil_str)
         
-    if textout is None: 
+    if texout is None: 
         head, tail = os.path.split(odsin)
         textout = head + '/' + tail[:-4] + '.tex'
-    with open(textout, 'w') as f:
+    with open(texout, 'w') as f:
         for row in alla:
             f.write(row)
 
