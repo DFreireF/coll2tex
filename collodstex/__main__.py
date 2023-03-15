@@ -10,7 +10,7 @@ def main():
 
     # Main Arguments
     parser.add_argument('odsin', type = str, nargs = '+', help = 'Name of the ods.')
-    parser.add_argument('-out','texout', type = str, nargs = '?', help = 'Name of the tex.')
+    parser.add_argument('-tex','--texout', type = str, nargs = '?', help = 'Name of the tex.')
 
     # Actions
     parser.add_argument('-l', '--log', dest = 'logLevel', choices = ['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'], default = 'INFO', help = 'Set the logging level.')
@@ -20,9 +20,9 @@ def main():
 
     # Extra Details
     if args.logLevel: log.basicConfig(level = log.getLevelName(args.logLevel))
-    if args.outdir: outfilepath = os.path.join(args.outdir, '')
+    if args.outdir and args.texout: outfilepath = os.path.join(args.outdir, '')
 
-    controller(args.odsin, args.texout)
+    controller(args.odsin, outfilepath + args.texout)
     
 def controller(odsin, texout = None):
     
