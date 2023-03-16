@@ -15,9 +15,9 @@ A typical ODS spreadsheet file might look like this:
 ## Installation
 Clone this repository with:
 ```bash
-    git clone https://github.com/DFreireF/collodstex.git
+    git clone https://github.com/DFreireF/coll2tex.git
 ```
-Then use `pip` for installing `collodstex`.
+Then use `pip` for installing `coll2tex`.
 
 ```bash
   pip install -r requirements.txt
@@ -28,10 +28,10 @@ Then use `pip` for installing `collodstex`.
 
 Run it as a python module
 
-    python -m collodstex /your/path/with/thefile.ods
+    python -m coll2tex /your/path/with/thefile.ods
 
 Or once installed, you can use from anywhere with:
 
-    collodstex /your/path/with/thefile.ods
+    coll2tex /your/path/with/thefile.ods
 
 Then it will create a `thefile.tex` at `/your/path/with/thefile.tex` with authors and affiliations. Output file name can be changed by `--texout` option.
