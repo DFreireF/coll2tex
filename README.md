@@ -1,30 +1,38 @@
-Python script that reads an .ods (libreoffice calc) with an author list and transform it to .tex with:
+Python script that reads an `.ods` (libreoffice calc) with an author list and transform it to `.tex` in the following format:
+
+```tex
 \author{} 
 \affiliation{} 
-format
+```
+
+A typical ODS spreadsheet file might look like this:
+
+| First      | First Abb. | Last  | Email               | ORCID               | 1. Afiiliation  | 2. Affiliation  | 3. Affiliation |
+|------------|------------|-------|---------------------|---------------------|-----------------|-----------------|----------------|
+| Eva Lilith | E. L.      | Cielo | elcielo@example.edu | 0000-0123-4567-8910 | City University | College of Arts |                |
+
+
 
 ## Installation
-Clone the repository or download the source from [GitHUB](https://github.com/DFreireF/collodstex.git). Then use `pip` for installing `collodstex`.
+Clone this repository with:
+```bash
+    git clone https://github.com/DFreireF/collodstex.git
+```
+Then use `pip` for installing `collodstex`.
 
-    pip install -r requirements.txt
-That will install `collodstex`, `ezodf` and `lxml`
+```bash
+  pip install -r requirements.txt
+  pip install .
+```
 
-Once install, you can use from anywhere with:
+## Usage
 
-python -m collodstex /your/path/with/thefile.ods
+Run it as a python module
 
-Then it will create a thefile.tex at /your/path/with/thefile.tex with authors and affiliations.
+    python -m collodstex /your/path/with/thefile.ods
 
+Or once installed, you can use from anywhere with:
 
-usage: __main__.py [-h] [-tex [TEXOUT]] [-l {DEBUG,INFO,WARNING,ERROR,CRITICAL}] odsin [odsin ...]
+    collodstex /your/path/with/thefile.ods
 
-positional arguments:
-  odsin                 Name of the ods.
-
-options:
-  -h, --help            show this help message and exit
-  -tex [TEXOUT], --texout [TEXOUT]
-                        Name of the tex.
-  -l {DEBUG,INFO,WARNING,ERROR,CRITICAL}, --log {DEBUG,INFO,WARNING,ERROR,CRITICAL}
-                        Set the logging level.
-                       
+Then it will create a `thefile.tex` at `/your/path/with/thefile.tex` with authors and affiliations. Output file name can be changed by `--texout` option.
