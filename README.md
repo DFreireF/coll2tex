@@ -12,7 +12,6 @@ A typical ODS spreadsheet file might look like this:
 | Eva Lilith | E. L.      | Cielo | elcielo@example.edu | 0000-0123-4567-8910 | City University | College of Arts |                |
 
 
-
 ## Installation
 Clone this repository with:
 ```bash
