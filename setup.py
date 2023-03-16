@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-from collodstex.version import __version__
+from coll2tex.version import __version__
 from pathlib import Path
 
 this_directory = Path(__file__).parent
@@ -16,7 +16,7 @@ classifiers = [
 ]
 
 setup(
-    name='collodstex',
+    name='coll2tex',
     packages=find_packages(),
     version=__version__,
     description='...',
