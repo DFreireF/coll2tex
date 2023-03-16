@@ -27,7 +27,7 @@ setup(
     download_url=f'https://github.com/DFreireF/collodstex/tarball/{__version__}',
     entry_points={
         'console_scripts': [
-            'collodstex = collodstex.__main__:main'
+            'coll2tex = coll2tex.__main__:main'
         ]
     },
     license='GPLv3',
