@@ -1,7 +1,6 @@
 import ezodf
 import argparse
 import os
-import logging as log
 
 def main():
     
@@ -10,15 +9,9 @@ def main():
 
     # Main Arguments
     parser.add_argument('odsin', type = str, nargs = '+', help = 'Name of the ods.')
-    parser.add_argument('-tex','--texout', type = str, nargs = '?', help = 'Name of the tex.')
-
-    # Actions
-    parser.add_argument('-l', '--log', dest = 'logLevel', choices = ['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'], default = 'INFO', help = 'Set the logging level.')
+    parser.add_argument('-t','--texout', type = str, nargs = '?', help = 'Name of the tex.')
 
     args = parser.parse_args()
-
-    # Extra Details
-    if args.logLevel: log.basicConfig(level = log.getLevelName(args.logLevel))
 
     controller(args.odsin[0],  args.texout)
     
