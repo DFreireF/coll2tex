@@ -7,12 +7,11 @@ long_description = (this_directory / 'README.md').read_text()
 
 classifiers = [
     'Environment :: Console',
-    'Programming Language :: Python :: 3.4',
-    'Programming Language :: Python :: 3.5',
+    'Programming Language :: Python :: 3.9',
     'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
     'Natural Language :: English',
     'Operating System :: OS Independent',
-    'Topic :: Scientific/Engineering :: Physics'
+    'Topic :: Text Processing :: Markup :: LaTeX'
 
 ]
 
@@ -32,6 +31,6 @@ setup(
         ]
     },
     license='GPLv3',
-    keywords=['physics', 'data analysis', 'storage ring', ],
+    keywords=['collaboration list', 'author', 'affiliation', ],
     classifiers=classifiers
 )
