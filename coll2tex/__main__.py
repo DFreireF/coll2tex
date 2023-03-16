@@ -4,7 +4,7 @@ import os
 
 def main():
     
-    scriptname = 'odsTOlatex-authorlist' 
+    scriptname = 'coll2tex' 
     parser = argparse.ArgumentParser()
 
     # Main Arguments
@@ -14,6 +14,7 @@ def main():
     args = parser.parse_args()
 
     controller(args.odsin[0],  args.texout)
+    print(f'{scriptname} converted {args.odsin[0]} to tex succesfully.')
     
 def controller(odsin, texout = None):
     
